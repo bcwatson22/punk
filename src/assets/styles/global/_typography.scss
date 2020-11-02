@@ -16,11 +16,11 @@ body {
 
 h1,
 .h1 {
-  font-size: 5.6rem;
+  font-size: 5rem;
   line-height: 1;
 
   @media screen and (min-width: $landscape) {
-    font-size: 8.4rem;
+    font-size: 8rem;
   }
 }
 
@@ -38,6 +38,44 @@ h3,
 .h3 {
   font-size: 2.8rem;
   line-height: 1.2;
+}
+
+.text-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline;
+  position: relative;
+  background-image:
+    linear-gradient(var(--blue-dark), var(--blue-dark)),
+    linear-gradient(var(--blue), var(--blue)),
+    linear-gradient(var(--grey-dark), var(--grey-dark));
+  background-size:
+    0 0.2rem,
+    0 0.2rem,
+    100% 0.2rem;
+  background-position:
+    0 calc(100% - 0.75rem),
+    0 calc(100% - 0.75rem),
+    0 calc(100% - 0.75rem);
+  background-repeat: no-repeat;
+  transition: background-size 0.075s ease-out;
+  will-change: background-size;
+  padding: 1rem 0;
+
+  &:hover,
+  &:focus {
+    background-size:
+      0 0.2rem,
+      100% 0.2rem,
+      100% 0.2rem;
+  }
+
+  &:active {
+    background-size:
+      100% 0.2rem,
+      100% 0.2rem,
+      100% 0.2rem;
+  }
 }
 
 button {

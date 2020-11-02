@@ -1,4 +1,44 @@
 header {
   background: var(--yellow);
-  color: var(--black);
+  color: var(--grey-dark);
+
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  h1,
+  small {
+    padding-left: 4rem;
+
+    @media screen and (min-width: $landscape) {
+      padding-left: 6rem;
+    }
+  }
+
+  h1 {
+    display: flex;
+    position: relative;
+    @include pseudo-before();
+
+    &:before {
+      background: url('./../images/icons/hop.svg') 0 0 no-repeat;
+      background-size: auto 100%;
+      width: 3.2rem;
+      height: 4rem;
+      left: 0;
+      @include central-y();
+
+      @media screen and (min-width: $landscape) {
+        width: 4.8rem;
+        height: 6rem;
+      }
+    }
+  }
+
+  small {
+    margin: 0.5rem 0;
+  }
 }

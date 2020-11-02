@@ -3,6 +3,11 @@ body {
   height: 100%;
 }
 
+body {
+  background: var(--grey-dark);
+  color: var(--grey-light);
+}
+
 header,
 main,
 footer {

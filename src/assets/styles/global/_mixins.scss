@@ -26,28 +26,28 @@
   transform: translateX(-50%);
 }
 
+@mixin pseudo-content() {
+  content: '';
+  display: block;
+  position: absolute;
+}
+
 @mixin pseudo-before() {
   &:before {
-    content: '';
-    display: block;
-    position: absolute;
+    @include pseudo-content();
   }
 }
 
 @mixin pseudo-after() {
   &:after {
-    content: '';
-    display: block;
-    position: absolute;
+    @include pseudo-content();
   }
 }
 
 @mixin pseudo-blocks() {
   &:before,
   &:after {
-    content: '';
-    display: block;
-    position: absolute;
+    @include pseudo-content();
   }
 }
 
