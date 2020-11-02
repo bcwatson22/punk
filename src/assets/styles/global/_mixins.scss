@@ -1,0 +1,70 @@
+@mixin hwa() {
+  // 3D rendering on GPU
+  transform: translateZ(0);
+
+  // fix chrome and safari flicker
+  backface-visibility: hidden;
+  perspective: 1000;
+
+  // webkit-powered
+  transform: translate3d(0, 0, 0);
+}
+
+@mixin central() {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin central-y() {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin central-x() {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin pseudo-before() {
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+}
+
+@mixin pseudo-after() {
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+}
+
+@mixin pseudo-blocks() {
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+}
+
+@mixin flex-col() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin w-c-o() {
+  will-change: opacity;
+}
+
+@mixin w-c-t() {
+  will-change: transform;
+}
+
+@mixin w-c-o-t() {
+  will-change: opacity, transform;
+}

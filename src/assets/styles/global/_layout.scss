@@ -1,0 +1,29 @@
+html,
+body {
+  height: 100%;
+}
+
+header,
+main,
+footer {
+  position: relative;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+.inner {
+  margin: 0 auto;
+  max-width: 160rem;
+  min-width: 32rem;
+  padding: 1.5rem 3rem;
+
+  @media screen and (min-width: $portrait) {
+    padding: 2rem 6rem;
+  }
+
+  @media screen and (min-width: $landscape) {
+    padding: 3rem 12rem;
+  }
+}
