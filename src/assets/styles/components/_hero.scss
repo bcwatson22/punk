@@ -1,0 +1,7 @@
+.hero {
+  position: relative;
+
+  .tns-liveregion {
+    @include visually-hidden();
+  }
+}

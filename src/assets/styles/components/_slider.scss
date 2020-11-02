@@ -1,0 +1,105 @@
+.slider {
+  &--image {
+    display: flex;
+
+    li {
+      height: 30rem;
+
+      @media screen and (min-width: $portrait) {
+        height: 40rem;
+      }
+
+      @media screen and (min-width: $landscape) {
+        height: 50rem;
+      }
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.tns {
+  &-controls,
+  &-nav {
+    button {
+      width: 4.4rem;
+      height: 4.4rem;
+      position: relative;
+      @include pseudo-before();
+      border-radius: 50%;
+
+      &:focus {
+        background: rgba(255, 255, 255, 0.1);
+        outline: 0;
+        border: 0;
+      }
+    }
+  }
+
+  &-controls button {
+    position: absolute;
+    @include central-y();
+    text-indent: -99999rem;
+
+    &:before {
+      @include chevron(2rem, 0.5rem, var(--grey));
+      @include central();
+    }
+
+    &:hover {
+      &:before {
+        border-color: var(--yellow);
+      }
+    }
+
+    &:active:before {
+      border-color: var(--white);
+    }
+
+    &:first-of-type {
+      left: 3rem;
+
+      &:before {
+        transform: translate(-50%, -50%) rotate(-225deg);
+      }
+    }
+
+    &:last-of-type {
+      right: 3rem;
+
+      &:before {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+  }
+
+  &-nav {
+    position: absolute;
+    bottom: 3rem;
+    @include central-x();
+
+    button {
+      &:before {
+        background: var(--grey);
+        border-radius: 50%;
+        width: 1rem;
+        height: 1rem;
+        @include central();
+      }
+
+      &:hover,
+      &.tns-nav-active {
+        &:before {
+          background: var(--yellow);
+        }
+      }
+
+      &:active:before {
+        background: var(--white);
+      }
+    }
+  }
+}

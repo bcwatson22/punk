@@ -12,16 +12,24 @@ header,
 main,
 footer {
   position: relative;
+  @extend .outer;
 }
 
 .wrapper {
   overflow: hidden;
 }
 
+.outer,
 .inner {
   margin: 0 auto;
+}
+
+.outer {
   max-width: 160rem;
   min-width: 32rem;
+}
+
+.inner {
   padding: 1.5rem 3rem;
 
   @media screen and (min-width: $portrait) {

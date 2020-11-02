@@ -14,3 +14,19 @@ video {
   height: 100%;
   object-fit: cover;
 }
+
+.lazy,
+.loaded {
+  transition: filter 0.5s ease, transform 0.5s ease;
+  will-change: filter, transform;
+}
+
+.lazy {
+  filter: blur(0.5rem);
+  opacity: 0.25;
+}
+
+.loaded {
+  filter: blur(0);
+  opacity: 0.999;
+}
