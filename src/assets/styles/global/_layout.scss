@@ -30,13 +30,13 @@ footer {
 }
 
 .inner {
-  padding: 1.5rem 3rem;
+  padding: 1.5rem #{$gutter-mobile};
 
   @media screen and (min-width: $portrait) {
-    padding: 2rem 6rem;
+    padding: 2rem #{$gutter-portrait};
   }
 
   @media screen and (min-width: $landscape) {
-    padding: 3rem 12rem;
+    padding: 3rem #{$gutter-landscape};
   }
 }

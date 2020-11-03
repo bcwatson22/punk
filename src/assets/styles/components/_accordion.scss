@@ -1,31 +1,6 @@
 .accordion {
   padding-top: 6rem;
-
-  &__title {
-    margin-bottom: 3rem;
-    color: var(--white);
-    display: inline-block;
-    position: relative;
-    padding-right: 4rem;
-    @include pseudo-after();
-
-    &:after {
-      @include central-y();
-      right: 0;
-      width: 2rem;
-      height: 2rem;
-      background: url('./../images/icons/loading.svg') 0 0 no-repeat;
-      background-size: auto 100%;
-      animation: spin-y 1.2s linear infinite;
-      opacity: 0.001;
-      transition: opacity 0.3s ease;
-      @include w-c-o();
-    }
-
-    &--loading:after {
-      opacity: 0.999;
-    }
-  }
+  @include loading-title();
 
   &__wrapper {
     overflow: hidden;

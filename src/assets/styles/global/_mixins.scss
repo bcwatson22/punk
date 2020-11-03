@@ -84,3 +84,79 @@
   width: $size;
   height: $size;
 }
+
+@mixin loading-title() {
+  &__title {
+    margin-bottom: 3rem;
+    color: var(--white);
+    display: inline-block;
+    position: relative;
+    padding-right: 4rem;
+    @include pseudo-after();
+
+    &:after {
+      @include central-y();
+      right: 0;
+      width: 2rem;
+      height: 2rem;
+      background: url('./../images/icons/loading.svg') 0 0 no-repeat;
+      background-size: auto 100%;
+      animation: spin-y 1.2s linear infinite;
+      opacity: 0.001;
+      transition: opacity 0.3s ease;
+      @include w-c-o();
+    }
+
+    &--loading:after {
+      opacity: 0.999;
+    }
+  }
+}
+
+@mixin full-page-mobile() {
+  width: calc(100% + calc(#{$gutter-mobile} * 2));
+}
+
+@mixin full-page-portrait() {
+  width: calc(100% + calc(#{$gutter-portrait} * 2));
+}
+
+@mixin full-page-landscape() {
+  width: calc(100% + calc(#{$gutter-landscape} * 2));
+}
+
+@mixin full-page() {
+  @include full-page-mobile();
+
+  @media screen and (min-width: $portrait) {
+    @include full-page-portrait();
+  }
+
+  @media screen and (min-width: $landscape) {
+    @include full-page-landscape();
+  }
+}
+
+@mixin bleed-left-mobile() {
+  margin-left: -#{$gutter-mobile};
+}
+
+@mixin bleed-left-portrait() {
+  margin-left: -#{$gutter-portrait};
+}
+
+@mixin bleed-left-landscape() {
+  margin-left: -#{$gutter-landscape};
+}
+
+@mixin bleed-left() {
+  @include bleed-left-mobile();
+
+  @media screen and (min-width: $portrait) {
+    @include bleed-left-portrait();
+  }
+
+  @media screen and (min-width: $landscape) {
+    @include bleed-left-landscape();
+  }
+}
