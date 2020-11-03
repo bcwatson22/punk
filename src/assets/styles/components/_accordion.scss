@@ -1,0 +1,67 @@
+.accordion {
+  padding-top: 6rem;
+
+  h2 {
+    margin-bottom: 3rem;
+    color: var(--white);
+  }
+
+  details {
+    margin-bottom: 1rem;
+  }
+
+  &__summary,
+  &__content {
+    padding: 1rem 3rem;
+  }
+
+  &__summary {
+    position: relative;
+    background: var(--yellow-light);
+    color: var(--grey-dark);
+    border: none;
+    cursor: pointer;
+    list-style: none;
+    padding-right: 1rem 9rem 1rem 3rem;
+    @extend h3;
+    @include pseudo-before();
+
+    &:before {
+      @include chevron(2rem, 0.5rem, var(--grey-dark));
+      @include central-y();
+      right: 3rem;
+      margin-top: -0.5rem;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:focus {
+      outline: 0;
+      border: 0;
+    }
+
+    &:hover,
+    &:focus {
+      background: var(--yellow);
+    }
+
+    &:active {
+      background: var(--yellow-dark);
+    }
+  }
+
+  &__content {
+    p {
+      margin-top: 1rem;
+    }
+
+    table {
+      margin-top: 2rem;
+      width: calc(100% + 6rem);
+      margin-left: -3rem;
+    }
+  }
+}

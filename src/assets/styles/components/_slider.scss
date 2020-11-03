@@ -3,6 +3,7 @@
     display: flex;
 
     li {
+      list-style: none;
       height: 30rem;
 
       @media screen and (min-width: $portrait) {
@@ -32,7 +33,7 @@
       border-radius: 50%;
 
       &:focus {
-        background: rgba(255, 255, 255, 0.1);
+        background: var(--faint);
         outline: 0;
         border: 0;
       }
@@ -45,18 +46,18 @@
     text-indent: -99999rem;
 
     &:before {
-      @include chevron(2rem, 0.5rem, var(--grey));
+      @include chevron(2rem, 0.5rem, var(--white));
       @include central();
     }
 
     &:hover {
       &:before {
-        border-color: var(--yellow);
+        border-color: var(--yellow-light);
       }
     }
 
     &:active:before {
-      border-color: var(--white);
+      border-color: var(--blue);
     }
 
     &:first-of-type {
@@ -64,6 +65,7 @@
 
       &:before {
         transform: translate(-50%, -50%) rotate(-225deg);
+        margin-left: 0.5rem;
       }
     }
 
@@ -72,6 +74,7 @@
 
       &:before {
         transform: translate(-50%, -50%) rotate(-45deg);
+        margin-left: -0.5rem;
       }
     }
   }
@@ -83,7 +86,7 @@
 
     button {
       &:before {
-        background: var(--grey);
+        background: var(--white);
         border-radius: 50%;
         width: 1rem;
         height: 1rem;
@@ -93,12 +96,12 @@
       &:hover,
       &.tns-nav-active {
         &:before {
-          background: var(--yellow);
+          background: var(--yellow-light);
         }
       }
 
       &:active:before {
-        background: var(--white);
+        background: var(--blue);
       }
     }
   }
