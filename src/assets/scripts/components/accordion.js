@@ -1,4 +1,4 @@
-import { debounce, delay, setCSSVar, getViewportDimensions } from './../global/utils';
+import { debounce, delay, setCSSVar, emptyElement, getViewportDimensions } from './../global/utils';
 
 const openClass = 'accordion__wrapper--open';
 
@@ -25,8 +25,6 @@ const toggleOpenAttribute = ($accordion) => {
 
   const isOpen = isAccordionOpen($accordion);
   const attrName = 'open';
-
-  console.log(isOpen)
 
   isOpen
     ? $accordion.removeAttribute(attrName)
@@ -127,10 +125,105 @@ const bindResize = () => {
 
 }
 
+const injectHTML = ($wrapper, markup) => $wrapper.insertAdjacentHTML('beforeend', markup);
+
+const buildAccordionMarkup = (data) => {
+
+  return new Promise(resolve => {
+
+    const markup = data.map((beer, i) => {
+
+      const { name, description, tagline, first_brewed, abv } = beer;
+
+      return `
+        <details class="accordion__wrapper" aria-expanded="false" data-accordion>
+          <summary class="accordion__summary">${name}</summary>
+          <div class="accordion__content">
+            <p>${description}</p>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Tagline</th>
+                  <td>${tagline}</td>
+                </tr>
+                <tr>
+                  <th>First brewed</th>
+                  <td>${first_brewed}</td>
+                </tr>
+                <tr>
+                  <th>Strength</th>
+                  <td>${abv}%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      `;
+
+    }).join('');
+
+    resolve(markup);
+
+  });
+
+}
+
+const handleSuccess = (data, $wrapper, $title, loadingClass) => {
+
+  buildAccordionMarkup(data).then(markup => injectHTML($wrapper, markup));
+
+  return $wrapper;
+
+}
+
+const handleError = (response, $wrapper) => {
+
+  const status = response.statusText;
+  const markup = `<p>Oops. Something went wrong, please try again!</p>`;
+
+  injectHTML($wrapper, markup);
+
+  throw new Error(status);
+
+  return status;
+
+}
+
+const fetchContent = () => {
+
+  return new Promise(resolve => {
+
+    const $title = document.querySelector('[data-accordion-title]');
+    const $wrapper = document.querySelector('[data-accordion-wrapper]');
+
+    if (!$title || !$wrapper) return false;
+
+    const loadingClass = 'accordion__title--loading';
+
+    fetch('https://api.punkapi.com/v2/beers?per_page=5')
+        .then(response => {
+
+          emptyElement($wrapper);
+          $title.classList.remove(loadingClass);
+
+          if (!response.ok) handleError(response, $wrapper);
+
+          resolve(response.json().then(data => handleSuccess(data, $wrapper)));
+
+        });
+
+  });
+
+}
+
 const init = () => {
 
-  bindResize();
-  initAccordion();
+  fetchContent().then(() => {
+
+    initAccordion();
+    bindResize();
+
+  });
 
 }
 
