@@ -27,6 +27,7 @@
     "import-glob-loader": "1.1.0",
     "laravel-mix": "4.0.16",
     "laravel-mix-imagemin": "1.0.3",
+    "node-vibrant": "^3.1.4",
     "resolve-url-loader": "2.3.1",
     "rimraf": "2.6.3",
     "sass": "1.22.3",

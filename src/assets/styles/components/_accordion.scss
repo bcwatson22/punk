@@ -8,14 +8,13 @@
 
   &__summary {
     margin-bottom: 2rem;
-    padding: 1rem 3rem;
     position: relative;
     background: var(--yellow-light);
     color: var(--grey-dark);
     border: none;
     cursor: pointer;
     list-style: none;
-    padding-right: 1rem 9rem 1rem 3rem;
+    padding: 1rem 9rem 1rem 3rem;
     @extend h3;
     @include pseudo-before();
 

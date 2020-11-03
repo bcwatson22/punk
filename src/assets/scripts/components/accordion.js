@@ -131,7 +131,7 @@ const buildAccordionMarkup = (data) => {
 
   return new Promise(resolve => {
 
-    const markup = data.map((beer, i) => {
+    const markup = data.map(beer => {
 
       const { name, description, tagline, first_brewed, abv } = beer;
 
