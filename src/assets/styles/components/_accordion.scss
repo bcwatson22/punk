@@ -6,16 +6,13 @@
     color: var(--white);
   }
 
-  details {
-    margin-bottom: 1rem;
-  }
-
-  &__summary,
-  &__content {
-    padding: 1rem 3rem;
+  &__wrapper {
+    overflow: hidden;
   }
 
   &__summary {
+    margin-bottom: 2rem;
+    padding: 1rem 3rem;
     position: relative;
     background: var(--yellow-light);
     color: var(--grey-dark);
@@ -54,14 +51,20 @@
   }
 
   &__content {
-    p {
-      margin-top: 1rem;
+    padding: 0 3rem;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+    will-change: max-height;
+    @include hwa();
+
+    .accordion__wrapper--open & {
+      max-height: calc(var(--max-height) * 0.1rem);
+      transition-duration: 0.5s;
     }
 
     table {
-      margin-top: 2rem;
+      margin: 2rem 0 2rem -3rem;
       width: calc(100% + 6rem);
-      margin-left: -3rem;
     }
   }
 }
