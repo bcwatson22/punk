@@ -212,7 +212,7 @@ const fetchContent = () => {
           emptyElement($wrapper);
           $title.classList.remove(loadingClass);
 
-          if (!response.ok) handleError(response, $wrapper);
+          if (!response.ok) reject(handleError(response, $wrapper));
 
           resolve(response.json().then(data => handleSuccess(data, $wrapper)));
 

@@ -61,7 +61,7 @@ const handleError = (response, $wrapper) => {
 
 const fetchContent = () => {
 
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
 
     const $title = document.querySelector('[data-tiles-title]');
 
@@ -75,7 +75,7 @@ const fetchContent = () => {
           emptyElement($wrapper);
           $title.classList.remove(loadingClass);
 
-          if (!response.ok) handleError(response, $wrapper);
+          if (!response.ok) reject(handleError(response, $wrapper));
 
           resolve(response.json().then(data => handleSuccess(data, $wrapper)));
 
@@ -141,10 +141,16 @@ const initFilters = () => {
 
 const init = () => {
 
-  fetchContent().then(() => {
+  return new Promise(resolve => {
 
-    getColours();
-    initFilters();
+    fetchContent().then(response => {
+
+      getColours();
+      initFilters();
+
+      resolve(response);
+
+    });
 
   });
 

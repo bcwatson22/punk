@@ -1,3 +1,17 @@
+const delay = (time) => {
+
+  return new Promise(resolve => {
+
+    setTimeout(() => {
+
+      resolve(true);
+
+    }, time);
+
+  });
+
+}
+
 const debounce = (func, delay) => {
 
   let timerId;
@@ -19,20 +33,6 @@ const debounce = (func, delay) => {
     }, delay);
 
   }
-
-}
-
-const delay = (time) => {
-
-  return new Promise((resolve) => {
-
-    setTimeout(() => {
-
-      resolve();
-
-    }, time);
-
-  });
 
 }
 
@@ -68,8 +68,8 @@ const removeElement = ($element) => $element.parentNode.removeChild($element);
 const getViewportDimensions = () => ({ width: window.innerWidth, height: window.innerHeight });
 
 export {
-  debounce,
   delay,
+  debounce,
   getCSSVar,
   setCSSVar,
   emptyElement,

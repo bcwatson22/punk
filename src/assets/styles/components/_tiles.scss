@@ -32,6 +32,24 @@
     @media screen and (min-width: $landscape) {
       grid-template-columns: repeat(12, 1fr);
     }
+
+    > p {
+      padding: 0 #{$gutter-mobile};
+
+      @media screen and (min-width: 600px) {
+        grid-column: 1 / 3;
+      }
+
+      @media screen and (min-width: $portrait) {
+        grid-column: 1 / 7;
+        padding: 0 #{$gutter-portrait};
+      }
+
+      @media screen and (min-width: $landscape) {
+        grid-column: 1 / 13;
+        padding: 0 #{$gutter-landscape};
+      }
+    }
   }
 
   &__tile {

@@ -32,7 +32,7 @@
       width: var(--size);
       height: var(--size);
       will-change: width, height, top, left;
-      background: radial-gradient(circle closest-side, var(--yellow) 60%, transparent);
+      background: radial-gradient(circle closest-side, var(--yellow) 60%, var(--yellow-light));
       transform: translate(-50%, -50%);
       transition: width 0.2s ease, height 0.2s ease;
       pointer-events: none;
@@ -41,6 +41,10 @@
     @media screen and (pointer: fine) and (hover: hover) {
       &:hover:before {
         --size: 50rem;
+
+        @media screen and (min-width: $landscape) {
+          --size: 100rem;
+        }
       }
     }
 
@@ -73,6 +77,10 @@
     &:focus,
     &:active {
       background: var(--yellow);
+
+      &:before {
+        background: radial-gradient(circle closest-side, var(--yellow-light) 60%, var(--yellow));
+      }
     }
   }
 

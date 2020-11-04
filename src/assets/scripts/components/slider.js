@@ -1,8 +1,8 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
 
-const initImageSlider = () => {
+const init = () => {
 
-  const $slider = document.querySelector('[data-slider-image]');
+  const $slider = document.querySelector('[data-slider]');
 
   if (!$slider) return false;
 
@@ -19,12 +19,6 @@ const initImageSlider = () => {
   });
 
   return slider;
-
-}
-
-const init = () => {
-
-  initImageSlider();
 
 }
 
