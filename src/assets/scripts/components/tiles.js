@@ -3,7 +3,18 @@ import { setCSSVar, emptyElement } from './../global/utils';
 
 const initFilters = () => {
 
-  console.log('filters');
+  const $form = document.querySelector('[data-tiles-form]');
+  const $filter = $form.querySelector('select');
+
+  $form.addEventListener('submit', (e) => e.preventDefault(), false);
+
+  $form.addEventListener('change', (e) => {
+
+    console.log(e.target.value);
+
+  }, false);
+
+  return $form;
 
 }
 

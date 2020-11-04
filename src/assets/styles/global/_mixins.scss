@@ -87,7 +87,6 @@
 
 @mixin loading-title() {
   &__title {
-    margin-bottom: 3rem;
     color: var(--white);
     display: inline-block;
     position: relative;

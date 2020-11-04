@@ -2,14 +2,27 @@
   padding-top: 4rem;
   @include loading-title();
 
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    padding-bottom: 3rem;
+
+    form {
+      margin: 0.5rem 0;
+    }
+  }
+
   &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.1rem;
     @include full-page();
     @include bleed-left();
 
     @media screen and (min-width: 600px) {
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-gap: 0.1rem;
     }
 
     @media screen and (min-width: $portrait) {
@@ -22,6 +35,7 @@
   }
 
   &__tile {
+    --colour: var(--white);
     background: var(--grey);
     min-height: 20rem;
     padding: 3rem;
@@ -30,33 +44,17 @@
     flex-direction: column;
     align-items: flex-start;
 
-    svg {
-      height: 6rem;
-      margin-bottom: 2rem;
-    }
-
-    h3 {
-      margin-top: auto;
-    }
-
-    .label {
-      fill: var(--colour);
-    }
-
     @media screen and (min-width: $portrait) {
       &:first-of-type,
-      &:nth-of-type(7) {
+      &:nth-of-type(6),
+      &:nth-of-type(8) {
         grid-column: 1 / 4;
       }
 
       &:nth-of-type(2),
-      &:nth-of-type(8) {
-        grid-column: 4 / 7;
-      }
-
-      &:nth-of-type(6),
+      &:nth-of-type(7),
       &:nth-of-type(9) {
-        grid-column: 1 / 7;
+        grid-column: 4 / 7;
       }
 
       &:nth-of-type(3),
@@ -114,6 +112,20 @@
       &:nth-of-type(9) {
         grid-column: 10 / 13;
       }
+    }
+
+    svg {
+      height: 6rem;
+      margin-bottom: 2rem;
+    }
+
+    h3 {
+      margin-top: auto;
+    }
+
+    .label {
+      fill: var(--colour);
+      transition: fill 0.5s ease;
     }
   }
 }

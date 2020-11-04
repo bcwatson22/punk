@@ -2,6 +2,10 @@
   padding-top: 6rem;
   @include loading-title();
 
+  &__title {
+    margin-bottom: 3rem;
+  }
+
   &__wrapper {
     overflow: hidden;
   }

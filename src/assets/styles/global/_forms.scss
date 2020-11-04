@@ -1,0 +1,7 @@
+form {
+  legend,
+  label,
+  button {
+    @include visually-hidden();
+  }
+}

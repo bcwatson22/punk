@@ -10,7 +10,7 @@
       <header>
         <div class="inner">
           <h1>Punk API</h1>
-          <small>Vector from <a href="https://www.vecteezy.com/free-vector/beer" class="text-link">Vecteezy</a></small>
+          <small>Vectors from <a href="https://www.vecteezy.com/free-vector/beer" class="text-link">Vecteezy</a></small>
         </div>
       </header>
       <main>
@@ -30,17 +30,31 @@
         <article class="accordion">
           <div class="inner">
             <h2 class="accordion__title accordion__title--loading" data-accordion-title>Beer accordion</h2>
-            <div class="accordion__wrapper" data-accordion-wrapper>
+            <section class="accordion__wrapper" data-accordion-wrapper>
               <p>Fetching the accordion beers, give us a sec...</p>
-            </div>
+            </section>
           </div>
         </article>
         <article class="tiles">
           <div class="inner">
-            <h2 class="tiles__title tiles__title--loading" data-tiles-title>Beer grid</h2>
-            <div class="tiles__wrapper" data-tiles-wrapper>
-              <p>Fetching the grid beers, give us a sec...</p>
+            <div class="tiles__header">
+              <h2 class="tiles__title tiles__title--loading" data-tiles-title>Beer grid</h2>
+              <form data-tiles-form>
+                <fieldset>
+                  <legend>Grid interaction</legend>
+                  <label>Filter</label>
+                  <select data-tiles>
+                    <option disabled selected>Filter beers...</option>
+                    <option value="strength-asc">Strength low to high</option>
+                    <option value="strength-desc">Strength high to low</option>
+                  </select>
+                  <button type="submit">Submit</button>
+                </fieldset>
+              </form>
             </div>
+            <section class="tiles__wrapper" data-tiles-wrapper>
+              <p>Fetching the grid beers, give us a sec...</p>
+            </section>
           </div>
         </article>
       </main>
