@@ -85,13 +85,17 @@ const bindAccordion = ($accordion) => {
 
   clicksBound++;
 
-  $accordion.addEventListener('click', (e) => {
+  const $summary = $accordion.querySelector('summary');
+
+  $summary.addEventListener('click', (e) => {
 
     e.preventDefault();
 
     animateAccordion($accordion);
 
   }, false);
+
+  return $summary;
 
 }
 

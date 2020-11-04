@@ -42,6 +42,9 @@ I had Node version **10.13.0** installed at the time of dev - newer or older ver
 * Testing the `delay()` method exported from *utils.js*
 	* This is an asynchronous function that returns a `promise`, essentially allowing you to use a `timeout` with confidence
 * Only wrote a couple of unit tests, but wanted to illustrate potential approach
+* Had testing in mind while created functions
+  * Keep them small and modular
+  * Make sure they're always returning something
 
 ## Components
 
@@ -75,7 +78,7 @@ I had Node version **10.13.0** installed at the time of dev - newer or older ver
 ### Tiles
 * Uses **CSS Grid** to style the grid which breaks out into more columns as the screen size increases
 * Employs a similar approach as the accordion to get data and inject into the DOM
-	* 25 beers are fetched, which are then shuffled with `sort()` before 12 are extracted with `slice()` 
+	* 25 beers are fetched, which are then shuffled with `sort()` before 12 are extracted with `slice()`
 * For a bit of fun, I used the **Vibrant** plugin for an extra effect
 	*	Finds the dominant colour from the beer image returned from the API
 	*	Use this on the label on the decorative beer bottle vector, the `<svg>` is inline so can just `fill: var(--colour)` with CSS
