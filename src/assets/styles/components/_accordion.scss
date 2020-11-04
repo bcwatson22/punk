@@ -12,6 +12,7 @@
 
   &__summary {
     margin-bottom: 2rem;
+    overflow: hidden;
     position: relative;
     background: var(--yellow-light);
     color: var(--grey-dark);
@@ -20,9 +21,30 @@
     list-style: none;
     padding: 1rem 9rem 1rem 3rem;
     @extend h3;
-    @include pseudo-before();
+    @include pseudo-blocks();
 
     &:before {
+      --size: 0;
+      content: '';
+      position: absolute;
+      left: calc(var(--x) * 0.1rem);
+      top: calc(var(--y) * 0.1rem);
+      width: var(--size);
+      height: var(--size);
+      will-change: width, height, top, left;
+      background: radial-gradient(circle closest-side, var(--yellow) 60%, transparent);
+      transform: translate(-50%, -50%);
+      transition: width 0.2s ease, height 0.2s ease;
+      pointer-events: none;
+    }
+
+    @media screen and (pointer: fine) and (hover: hover) {
+      &:hover:before {
+        --size: 50rem;
+      }
+    }
+
+    &:after {
       @include chevron(2rem, 0.5rem, var(--grey-dark));
       @include central-y();
       right: 3rem;
@@ -35,6 +57,10 @@
       }
     }
 
+    span {
+      position: relative;
+    }
+
     &::-webkit-details-marker {
       display: none;
     }
@@ -44,13 +70,9 @@
       border: 0;
     }
 
-    &:hover,
-    &:focus {
-      background: var(--yellow);
-    }
-
+    &:focus,
     &:active {
-      background: var(--yellow-dark);
+      background: var(--yellow);
     }
   }
 

@@ -50,8 +50,8 @@ p {
   display: inline;
   position: relative;
   background-image:
-    linear-gradient(var(--blue-dark), var(--blue-dark)),
     linear-gradient(var(--blue), var(--blue)),
+    linear-gradient(var(--white), var(--white)),
     linear-gradient(var(--grey-dark), var(--grey-dark));
   background-size:
     0 0.2rem,

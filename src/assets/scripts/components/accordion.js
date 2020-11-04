@@ -1,4 +1,5 @@
 import { debounce, delay, setCSSVar, emptyElement, getViewportDimensions } from './../global/utils';
+import initHover from './../global/hover';
 
 const openClass = 'accordion__wrapper--open';
 
@@ -137,7 +138,7 @@ const buildAccordionMarkup = (data) => {
 
       return `
         <details class="accordion__wrapper" aria-expanded="false" data-accordion>
-          <summary class="accordion__summary">${name}</summary>
+          <summary class="accordion__summary" data-hover><span>${name}</span></summary>
           <div class="accordion__content">
             <p>${description}</p>
             <table>
@@ -170,7 +171,12 @@ const buildAccordionMarkup = (data) => {
 
 const handleSuccess = (data, $wrapper, $title, loadingClass) => {
 
-  buildAccordionMarkup(data).then(markup => injectHTML($wrapper, markup));
+  buildAccordionMarkup(data).then(markup => {
+
+    injectHTML($wrapper, markup);
+    initHover();
+
+  });
 
   return $wrapper;
 
