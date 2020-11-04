@@ -17,7 +17,7 @@ mix.webpackConfig({
 
 mix
   .copy('./src/templates/', './dist', false)
-  .copy('./src/assets/favicon/*.*', './dist/images/global/favicon')
+  .copy('./src/assets/favicon/*.*', './dist')
   .imagemin(
     'images/**/*.{gif,jpg,png,webp,svg}',
     {

@@ -6,16 +6,14 @@
   "scripts": {
     "cleanup": "rimraf dist/",
     "predevelopment": "npm run cleanup",
-    "prehot": "npm run cleanup",
-    "preproduction": "npm run cleanup",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "dev": "npm run development -- --watch",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "preproduction": "npm run cleanup",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production"
   },
   "keywords": [],
-  "author": "",
+  "author": "Billy Watson",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "2.26.7",
