@@ -34,7 +34,8 @@ I had Node version **10.13.0** installed at the time of dev - newer or older ver
 * Kept everything modular
 	* Each component has its own CSS and JS file
 	* Allows ease of maintenance and scalability
-* Things kept clean, lean and DRY without sacrificing too much readability
+* Code kept clean, lean and DRY without sacrificing too much readability
+* Things could've been optimised further, but I ran out of time
 
 ## Unit testing
 

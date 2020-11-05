@@ -2,6 +2,10 @@
   padding-top: 4rem;
   @include loading-title();
 
+  .inner {
+    padding-bottom: 0;
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
